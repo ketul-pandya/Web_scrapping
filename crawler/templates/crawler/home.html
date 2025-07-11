@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to Simple Web Crawler</title>
+    <link rel="stylesheet" href="{%static 'crawler/style.css'%}">
+ 
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to Simple Web Crawler 🔎</h1>
+        <p>Enter a website URL to extract all links automatically.</p>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="url" placeholder="Enter website URL..." required>
+            <button type="submit">Fetch Links</button>
+        </form>
+        {% if error %}
+            <div class="error">Error: {{ error }}</div>
+        {% endif %}
+
+        {% comment %} {% if links %}
+            <h2>Extracted Links:</h2>
+            <ul>
+                {% for link in title %}
+                    <li><a href="{{ link }}" target="_blank">{{ link }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %} {% endcomment %}
+
+        {% if titles %}
+        <h2>extracted books titles:</h2>
+        <ul>
+            {% for title in titles  %}
+            <li>
+                {{title}}
+            </li>{% endfor %}
+        </ul>
+        {% endif %}
+        <a href="/main">main</a>
+    </div>
+</body>
+</html>
