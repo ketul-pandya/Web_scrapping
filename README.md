@@ -14,4 +14,4 @@ This is a simple web scraping tool built using **Django** and **BeautifulSoup**.
 - BeautifulSoup (for scraping)
 - HTML & CSS (for frontend)
 
-## 📂 Project Structure
+
